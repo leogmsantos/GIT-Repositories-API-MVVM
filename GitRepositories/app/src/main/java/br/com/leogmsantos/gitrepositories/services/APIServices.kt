@@ -9,9 +9,9 @@ interface APIServices {
 
     @GET("repositories")
     fun getGitRepositoryList(
-        @Query("q") searchedLanguage: String? = "android",
-        @Query("per_page") limit: Int? = 10,
-        @Query("page") page: Int? = 1
+        @Query("q") searchedLanguage: String,
+        @Query("per_page") limit: Int = 10,
+        @Query("page") page: Int
     ): Call<GITRepositoryResponse>
 
 }

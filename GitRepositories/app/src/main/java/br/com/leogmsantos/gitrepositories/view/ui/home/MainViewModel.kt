@@ -21,7 +21,7 @@ class MainViewModel(private val api: APIServices, private val repository: GITRep
     private val _repositoriesError = MutableLiveData<String?>()
     val repositoriesError: LiveData<String?> get() = _repositoriesError
 
-    suspend fun serchRepositories(name: String = "android", page: Int = 1, dynamicSearch:Boolean = false) = withContext(Dispatchers.IO){
+    suspend fun serchRepositories(name: String, page: Int, dynamicSearch:Boolean) = withContext(Dispatchers.Main){
         val repositories = repository.getAllRepositories()
         if (repositories.isEmpty() || page != 1 || dynamicSearch){
             val call: Call<GITRepositoryResponse> = api.getGitRepositoryList(searchedLanguage = name, page = page)

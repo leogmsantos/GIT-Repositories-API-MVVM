@@ -4,7 +4,9 @@
     <!-- filters -->
     <string name="filter_by_forks">Forks</string>
     <string name="filter_by_stars">Stars</string>
-    <string name="default_search">android</string>
+    <string name="default_filter">android</string>
+
     <!-- repository -->
     <string name="database">GITRepository.db</string>
+
 </resources>

@@ -16,6 +16,9 @@ import br.com.leogmsantos.gitrepositories.databinding.HomeBinding
 import br.com.leogmsantos.gitrepositories.model.GITRepository
 import br.com.leogmsantos.gitrepositories.view.adapter.RepositoryAdapter
 import br.com.leogmsantos.gitrepositories.util.LoadingDialog
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     if (scrollY == v.getChildAt(0).measuredHeight - v.measuredHeight){
                         page++
                         LoadingDialog.loading(this@MainActivity)
-                        if (submit.isNullOrEmpty()) mainViewModel.serchRepositories(page = page) else mainViewModel.serchRepositories(submit!!, page)
+                        if (submit.isNullOrEmpty()) callSearchRepositories(page = page) else callSearchRepositories(submit!!, page)
                     }
                 }
             })
@@ -54,7 +57,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         LoadingDialog.loading(this)
-        mainViewModel.serchRepositories()
+        callSearchRepositories()
+
         mainViewModel.repositories.observe(this, Observer {
             repositories = it as ArrayList<GITRepository>
             adapter.updateRepositories(repositories)
@@ -67,8 +71,10 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun searchRepositories(name: String = "android", page: Int = 1, dynamicSearch:Boolean = false){
-
+    fun callSearchRepositories(name: String = getString(R.string.default_filter), page: Int = 1, dynamicSearch:Boolean = false){
+        GlobalScope.launch {
+            mainViewModel.serchRepositories(name, page, dynamicSearch)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -85,10 +91,10 @@ class MainActivity : AppCompatActivity() {
                 adapter.clearList()
                 if (newText.isEmpty()){
                     submit = null
-                    mainViewModel.serchRepositories()
+                    callSearchRepositories()
                 }else{
                     submit = newText
-                    mainViewModel.serchRepositories(newText, dynamicSearch = true)
+                    callSearchRepositories(name = newText, dynamicSearch = true)
                 }
                 return false
             }
