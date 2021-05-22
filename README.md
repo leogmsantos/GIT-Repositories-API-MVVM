@@ -11,3 +11,6 @@
 - Architecture
   - MVVM Architecture (View - DataBinding - ViewModel - Model)
   - Repository pattern
+
+## Demonstration
+<img src="https://github.com/leogmsantos/GIT-Repositories-API-MVVM/blob/master/GIT-Repositories-App.gif" width="240" height="300"/>
