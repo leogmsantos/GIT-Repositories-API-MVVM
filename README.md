@@ -1,6 +1,6 @@
 ## Implementation of GIT API at "repositories" endpoint. 
 
-## Tech stack & Open-source libraries
+## Tech stack
 - Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) based + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous.
 - JetPack
