@@ -8,5 +8,8 @@
 
     <!-- repository -->
     <string name="database">GITRepository.db</string>
+    <string name="repository_language">Linguagem:</string>
+    <string name="repository_created_at">Criado em:</string>
+    <string name="repository_last_update">Último update:</string>
 
 </resources>

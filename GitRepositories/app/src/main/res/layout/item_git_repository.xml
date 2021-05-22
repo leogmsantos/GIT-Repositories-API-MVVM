@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+    android:id="@+id/repositorie"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -21,14 +22,14 @@
             android:id="@+id/tv_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="16dp"
-            android:textSize="16sp"
             android:textColor="@color/azul_claro"
+            android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            tools:text="Nome Repositório"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nome Repositório" />
 
         <TextView
             android:id="@+id/tv_item_description"
@@ -37,64 +38,155 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="16dp"
             android:textColor="@color/grey"
-            app:layout_constraintTop_toBottomOf="@+id/tv_item_title"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/ll_item_user"
-            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ligula tellus, lobortis vitae neque sit amet, vestibulum placerat ex."/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_title"
+            tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ligula tellus, lobortis vitae neque sit amet, vestibulum placerat ex." />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/details_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ll_item_user"
+            app:layout_constraintStart_toStartOf="@+id/ll_stats_container"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_language_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/repository_language"
+                android:textColor="@color/azul_claro"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_language_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_language_lbl"
+                app:layout_constraintTop_toTopOf="@+id/tv_language_lbl"
+                tools:text="Java" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_created_at_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/repository_created_at"
+                android:textColor="@color/azul_claro"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv_language_lbl"
+                app:layout_constraintTop_toBottomOf="@+id/tv_language_lbl" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_created_at_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_created_at_lbl"
+                app:layout_constraintTop_toTopOf="@+id/tv_created_at_lbl"
+                tools:text="02/09/2013" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_last_update_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/repository_last_update"
+                android:textColor="@color/azul_claro"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/tv_created_at_value"
+                app:layout_constraintTop_toTopOf="@+id/tv_created_at_value" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_last_update_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_last_update_lbl"
+                app:layout_constraintTop_toTopOf="@+id/tv_last_update_lbl"
+                tools:text="20/05/2021" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_clone"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_last_update_lbl"
+                app:srcCompat="@drawable/ic_baseline_cloud_download_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
+            android:id="@+id/ll_stats_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_item_description"
-            app:layout_constraintStart_toStartOf="@+id/tv_item_description">
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/tv_item_description"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_description">
 
             <ImageView
                 android:id="@+id/iv_fork_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_gitfork_120084"/>
+                android:src="@drawable/ic_gitfork_120084" />
 
             <TextView
                 android:id="@+id/tv_fork_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="16sp"
                 android:textColor="@color/orange"
-                tools:text="640"/>
+                android:textSize="16sp"
+                tools:text="640" />
 
             <ImageView
                 android:id="@+id/iv_favourite_icon"
-                android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_star_24"/>
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/ic_baseline_star_24" />
 
             <TextView
                 android:id="@+id/tv_favourite_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="16sp"
                 android:textColor="@color/orange"
-                tools:text="98"/>
+                android:textSize="16sp"
+                tools:text="98" />
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/details_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_stats_container"
+            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
         <LinearLayout
             android:id="@+id/ll_item_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="@+id/tv_item_title"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_stats_container"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/tv_item_title">
 
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -104,7 +196,7 @@
                 android:padding="6dp"
                 android:src="@mipmap/ic_launcher"
                 app:shapeAppearanceOverlay="@style/Circular"
-                app:strokeWidth="4dp"/>
+                app:strokeWidth="4dp" />
 
             <TextView
                 android:id="@+id/tv_username"
@@ -112,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="@color/azul_claro"
-                tools:text="Leonardo"/>
+                tools:text="Leonardo" />
 
         </LinearLayout>
 
