@@ -10,7 +10,6 @@
   - Room Persistence - construct a database using the abstract layer.
 - Architecture
   - MVVM Architecture (View - DataBinding - ViewModel - Model)
-  - Repository pattern
 
 ## Functionalities demonstration
 <img src="https://github.com/leogmsantos/GIT-Repositories-API-MVVM/blob/master/GIT-Repositories-App.gif" width="280" height="400"/>
