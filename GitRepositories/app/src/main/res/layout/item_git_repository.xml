@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Nome Repositório" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_item_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -134,13 +134,13 @@
             app:layout_constraintStart_toStartOf="@+id/tv_item_description"
             app:layout_constraintTop_toBottomOf="@+id/tv_item_description">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv_fork_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_gitfork_120084" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_fork_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -149,14 +149,14 @@
                 android:textSize="16sp"
                 tools:text="640" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/iv_favourite_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:src="@drawable/ic_baseline_star_24" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_favourite_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -198,7 +198,7 @@
                 app:shapeAppearanceOverlay="@style/Circular"
                 app:strokeWidth="4dp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_username"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
